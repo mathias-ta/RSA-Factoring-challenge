@@ -1,10 +1,8 @@
 #!/bin/bash
 FILE=$1
-i=2
 while read num;do
-	i=$((i+1))
-numO=$num
-fac=($(factor $num))
-num=$(($num/${fac[1]}))
-echo "$numO=$num*${fac[1]}"
+	numO=$num
+	fac=($(factor $num))
+	num=$(($num/${fac[1]}))
+	echo "$numO=$num*${fac[1]}"
 done < $FILE
