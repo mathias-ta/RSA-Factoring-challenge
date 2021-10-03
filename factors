@@ -1,5 +1,6 @@
 #!/bin/bash
 FILE=$1
 while read num;do
+	fac=($(factor $num))
 	echo "$num=$(($num/${fac[1]}))*${fac[1]}"
 done < $FILE
