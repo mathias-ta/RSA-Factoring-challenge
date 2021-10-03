@@ -2,5 +2,11 @@
 FILE=$1
 while read num;do
 	fac=($(factor $num))
-	echo "$num=$(($num/${fac[1]}))*${fac[1]}"
+	ret=$(factor $num | grep $num | cut -d ":" -f 2 | cut -d " " -f 2)
+	if [ "$ret" -eq "$num" ]
+	then
+		echo "$num=$num*1"
+	else
+		echo "$num=$(($num/${fac[1]}))*${fac[1]}"
+	fi
 done < $FILE
